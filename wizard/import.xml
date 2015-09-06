@@ -1,0 +1,43 @@
+<openerp>
+    <data>
+
+        <record id="view_import_inventory_wizard" model="ir.ui.view">
+            <field name="name">Import Inventory Form</field>
+            <field name="model">import.inventory.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+		    <group>
+			<label string="1. Name your Inventory" />
+			<newline/>
+			<label string="2. Select the location" />
+			<newline/>
+			<label string="3. Select your CSV file. Comma Delimited (NOT excel)" />
+			<newline/>
+			<label string="4. Click import" />
+		    </group>
+		    <group>
+			<field name="name" />
+			<field name="location" />
+			<field name="file" />
+			<field name="file_name" invisible="1" />
+		    </group>
+		    <group>
+			<button name="import_inventory" string="Import" type="object"/>
+		    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_import_inventory" model="ir.actions.act_window">
+            <field name="name">Import Inventory</field>
+            <field name="res_model">import.inventory.wizard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+	    <field name="view_mode">form</field>
+	    <field name="target">new</field>
+        </record>
+
+        <menuitem action="action_import_inventory" id="menu_action_import_inventory" parent="stock.menu_stock_inventory_control" sequence="35"/>
+
+   </data>
+</openerp>
